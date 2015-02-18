@@ -45,7 +45,7 @@ if len(usedmolecules)>(len(molecule_list)/2):
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
     server.login(username,password)
-    server.sendmail("james.hope87@gmail.com", "james.hope87@gmail.com", "Warning, we are running out of molecules to choose from!")
+    server.sendmail(fromaddr, toaddr, "Warning, we are running out of molecules to choose from!")
     server.quit()
 
 
@@ -95,6 +95,6 @@ def mailmolecules(username, password, fromaddr, toaddr, msg):
     server.sendmail(fromaddr, toaddr, msg)
     server.quit()
 
-mailmolecules(username, password, "james.hope87@gmail.com", "james.hope87@gmail.com", message(getmolecules(3)))
+mailmolecules(username, password, fromaddr, toaddr, message(getmolecules(3)))
 
 exit()
